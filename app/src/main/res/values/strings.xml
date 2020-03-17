@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyHealth</string>
     <string name="button1">tjenare</string>
+    <string name="welcome_text">Welcome to MyHealth</string>
 </resources>

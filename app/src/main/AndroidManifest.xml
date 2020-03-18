@@ -3,6 +3,7 @@
     package="se.qurit.myhealth">
 
     <application
+        android:name=".BackboneApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="org.researchstack.backbone.ui.ViewTaskActivity"
+            android:windowSoftInputMode="adjustResize"
+            />
+
+        <activity
+            android:name="org.researchstack.backbone.ui.ViewWebDocumentActivity"
+            android:label="@string/app_name"
+            />
     </application>
 
 </manifest>

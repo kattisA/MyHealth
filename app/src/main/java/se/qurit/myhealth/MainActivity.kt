@@ -9,13 +9,11 @@ import org.researchstack.backbone.answerformat.TextAnswerFormat
 import org.researchstack.backbone.model.ConsentDocument
 import org.researchstack.backbone.model.ConsentSection
 import org.researchstack.backbone.model.ConsentSignature
-import org.researchstack.backbone.step.ConsentDocumentStep
-import org.researchstack.backbone.step.ConsentVisualStep
-import org.researchstack.backbone.step.QuestionStep
-import org.researchstack.backbone.step.Step
+import org.researchstack.backbone.step.*
 import org.researchstack.backbone.task.OrderedTask
 import org.researchstack.backbone.task.Task
 import org.researchstack.backbone.ui.ViewTaskActivity
+import org.researchstack.backbone.ui.step.layout.ConsentSignatureStepLayout
 
 
 class MainActivity : AppCompatActivity() {
@@ -115,6 +113,16 @@ class MainActivity : AppCompatActivity() {
             fullName.isOptional = false
             steps.add(fullName)
         }
+
+        if (signature.requiresSignatureImage()) {
+            val signatureStep = ConsentSignatureStep("signature_step")
+            signatureStep.title = getString(R.string.rsb_consent_signature_title)
+            signatureStep.text = getString(R.string.rsb_consent_signature_instruction)
+            signatureStep.isOptional = false
+            signatureStep.stepLayoutClass = ConsentSignatureStepLayout::class.java
+            steps.add(signatureStep)
+        }
+
 
         return steps
     }
